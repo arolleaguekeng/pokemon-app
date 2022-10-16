@@ -14,16 +14,7 @@ export class AppComponent implements OnInit {
       console.table(this.pokemonList);
   }
 
-  selectPokemon(pokemonId: string){
-    const index: number = +(pokemonId);
-    const pokemon = this.pokemonList.find(
-      pokemon => 
-      pokemon.id == +pokemonId   
-    );
-    // If pokemon exist, show it. else show Error Message
-    pokemon ? this.pokemonSelected = pokemon
-    :
-    this.pokemonSelected = pokemon;
-    console.log(`You have cliked on ${this.pokemonList[index].name} Pokemon` )
+  selectPokemon(pokemon: Pokemon){
+    console.log(`You have cliked on ${pokemon.name} Pokemon` )
   } 
 }

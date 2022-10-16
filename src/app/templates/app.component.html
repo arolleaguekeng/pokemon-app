@@ -2,14 +2,21 @@
     <h1>Pokemons list </h1>
     <div class="row">
         <div class="row col m4 s6"  *ngFor="let pokemon of pokemonList">
-            <div class="card horizontal">
+            <div class="card horizontal " 
+                (click)="selectPokemon(pokemon)" pkmBorderCard>
                 <div class="card-image">
                     <img [src]="pokemon.picture">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
                         <p>{{pokemon.name}}</p>
-                        <label>{{pokemon.created}}</label>
+                        <!-- use "Pipes" to show custum date in upercase -->
+                        <label>{{pokemon.created | date | uppercase}}</label>
+                        <span *ngFor="let type of pokemon.types"
+                            class="{{ type | pokemonTypeColor }}"
+                        >
+                            {{type}}
+                        </span>
                     </div>
                 </div>
             </div>
