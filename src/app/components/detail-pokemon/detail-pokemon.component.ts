@@ -12,7 +12,7 @@ import { Pokemon } from 'src/app/models/pokemon';
 export class DetailPokemonComponent implements OnInit {
   pokemonList: Pokemon[];
   pokemon: Pokemon|undefined;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.pokemonList = POKEMONS;
@@ -20,7 +20,11 @@ export class DetailPokemonComponent implements OnInit {
     const pokemonId: string|null = this.route.snapshot.paramMap.get('id');
     pokemonId ? this.pokemon = this.pokemonList.find(pokemon => pokemon.id == +pokemonId)
     : this.pokemon = undefined;
-    
+  }
+
+  // Manage route to return in page "PokemonList"
+  goToPokemonList(){
+    this.router.navigate(['/pokemons']);
   }
 
 }
