@@ -1,0 +1,7 @@
+.ng-valid[required]{
+    border-left: 5px solid #065e39;
+}
+
+.ng-invalid[required]{
+    border-left: #8f2d14;
+}
