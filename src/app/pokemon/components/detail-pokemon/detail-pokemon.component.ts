@@ -19,8 +19,14 @@ export class DetailPokemonComponent implements OnInit {
   ngOnInit() {
     // To access the current route and retrieve the id
     const pokemonId: string|null = this.route.snapshot.paramMap.get('id');
-    pokemonId ? this.pokemon = this.pokemonService.getPokemonById(+pokemonId)
+    pokemonId ? this.pokemonService.getPokemonById(+pokemonId)
+    .subscribe(pokemon => this.pokemon = pokemon)
     : this.pokemon = undefined;
+  }
+
+  deletePokemon(pokemon: Pokemon){
+    this.pokemonService.deletePokemonById(pokemon.id)
+    .subscribe(() => this.goToPokemonList());
   }
 
   // Manage route to return in page "PokemonList"

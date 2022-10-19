@@ -19,7 +19,9 @@ export class ListPokemonComponent implements OnInit {
     this.router.navigate([`/pokemon/${pokemon.id}`])
   }
 
+  // To access the data coming from the server.
   ngOnInit(): void {
-    this.pokemonList = this.pokemonService.getPokemonList();
+    this.pokemonService.getPokemonList()
+    .subscribe(pokemonList => this.pokemonList = pokemonList);
   }
 }
