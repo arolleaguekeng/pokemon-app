@@ -17,13 +17,12 @@ import { InMemoryDataService } from './in-memory-data.service';
     PageNotFoundComponent
   ],
   imports: [
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false}),
     PokemonModule,
-    BrowserModule,
-    FormsModule,
     AppRoutingModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -26,6 +26,9 @@ export class PokemonService {
     );
   }
 
+  // Correct HTTP Update Pockemon
+  //updatePokemon(pokemon: Pokemon): Observable<Pokemon|undefined> 
+
   // Adaptative HTTP Update Pockemon
   updatePokemon(pokemon: Pokemon): Observable<null> {
     const httpOptions = {
@@ -40,20 +43,21 @@ export class PokemonService {
 
   
 
- // Correct HTTP Update Pockemon
-
- //updatePokemon(pokemon: Pokemon): Observable<Pokemon|undefined> {
- //  const httpOptions = {
- //    headers: new HttpHeaders({'Content-Type': 'application/json'})
- //  };
-
- //  return this.http.put('api/pokemon', pokemon, httpOptions).pipe(
- //    tap((response) => this.log(response)),
- //    catchError((error) => this.handleError(error, undefined))
- //  )
- //}
+ 
 
 
+
+ // HTTP Add Pokemon
+ addPokemon(pokemon: Pokemon): Observable<Pokemon>{
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  return this.http.post<Pokemon>('api/pokemons', pokemon, httpOptions).pipe(
+    tap((response) => this.log(response)),
+    catchError((error) => this.handleError(error, null))
+  )
+ }
  deletePokemonById(pokemonId: number): Observable<null> {
   return this.http.delete(`api/pokemons/${pokemonId}`).pipe(
     tap((response) => this.log(response)),
