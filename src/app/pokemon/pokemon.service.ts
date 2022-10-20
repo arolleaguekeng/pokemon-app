@@ -29,6 +29,18 @@ export class PokemonService {
   // Correct HTTP Update Pockemon
   //updatePokemon(pokemon: Pokemon): Observable<Pokemon|undefined> 
 
+  // Search Pokemon By text enter by user.
+  searchPokemonList(term: string): Observable<Pokemon[]>{
+    // user enter single letter we return empty table
+    if(term.length <= 1){
+      return of([]);
+    }
+    return this.http.get<Pokemon[]>(`api/pokemons/?name=${term}`).pipe(
+      tap((pokemon) => this.log(pokemon)), 
+      catchError((error) => this.handleError(error,[]))
+    )
+  }
+
   // Adaptative HTTP Update Pockemon
   updatePokemon(pokemon: Pokemon): Observable<null> {
     const httpOptions = {
