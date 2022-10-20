@@ -7,10 +7,11 @@ import { BorderCardDirective } from './directives/border-card.directive';
 import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
 import { PokemonService } from './pokemon.service';
 import { FormsModule } from '@angular/forms';
-import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
+import { PokemonFormComponent } from './components/pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './components/edit-pokemon/edit-pokemon.component';
 import { AddPokemonComponent } from './components/add-pokemon/add-pokemon.component';
 import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './loader/loader.component';
 
 // Define routes for pokemon module.
 const pokemonRoutes: Routes = [
@@ -33,6 +34,7 @@ const pokemonRoutes: Routes = [
     EditPokemonComponent,
     AddPokemonComponent,
     SearchPokemonComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,

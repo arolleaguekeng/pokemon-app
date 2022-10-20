@@ -94,4 +94,6 @@
       </div>
     </div>
   </form>
-  <h3 *ngIf="!pokemon" class="center">No Pokemon Selected !</h3>
+  <h3 *ngIf="!pokemon" class="center">
+    <app-loader></app-loader>
+  </h3>
